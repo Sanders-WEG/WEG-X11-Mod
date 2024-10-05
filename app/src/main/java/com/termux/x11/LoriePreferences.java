@@ -98,7 +98,7 @@ public class LoriePreferences extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
-            actionBar.setTitle("Preferences");
+            actionBar.setTitle("Настройки");
         }
     }
 
@@ -204,15 +204,15 @@ public class LoriePreferences extends AppCompatActivity {
             opacityEKBar.setShowSeekBarValue(true);
 
             String displayResMode = prefs.displayResolutionMode.get();
-            findPreference("displayScale").setVisible(displayResMode.contentEquals("scaled"));
-            findPreference("displayResolutionExact").setVisible(displayResMode.contentEquals("exact"));
-            findPreference("displayResolutionCustom").setVisible(displayResMode.contentEquals("custom"));
+            findPreference("displayScale").setVisible(displayResMode.contentEquals("Масштабировать"));
+            findPreference("displayResolutionExact").setVisible(displayResMode.contentEquals("Точное значение"));
+            findPreference("displayResolutionCustom").setVisible(displayResMode.contentEquals("Произвольное"));
 
             findPreference("dexMetaKeyCapture").setEnabled(!prefs.enableAccessibilityServiceAutomatically.get());
             findPreference("enableAccessibilityServiceAutomatically").setEnabled(!prefs.dexMetaKeyCapture.get());
             boolean pauseKeyInterceptingWithEscEnabled = prefs.dexMetaKeyCapture.get() || prefs.enableAccessibilityServiceAutomatically.get();
             findPreference("pauseKeyInterceptingWithEsc").setEnabled(pauseKeyInterceptingWithEscEnabled);
-            findPreference("pauseKeyInterceptingWithEsc").setSummary(pauseKeyInterceptingWithEscEnabled ? "" : "Requires intercepting system shortcuts with Dex mode or with Accessibility service");
+            findPreference("pauseKeyInterceptingWithEsc").setSummary(pauseKeyInterceptingWithEscEnabled ? "" : "Требуется перехват системных ярлыков в режиме Dex или со службой специальных возможностей");
             findPreference("filterOutWinkey").setEnabled(prefs.enableAccessibilityServiceAutomatically.get());
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
@@ -221,7 +221,7 @@ public class LoriePreferences extends AppCompatActivity {
             findPreference("displayResolutionMode").setSummary(prefs.displayResolutionMode.get());
             findPreference("displayResolutionExact").setSummary(prefs.displayResolutionExact.get());
             findPreference("displayResolutionCustom").setSummary(prefs.displayResolutionCustom.get());
-            boolean displayStretchEnabled = "exact".contentEquals(prefs.displayResolutionMode.get()) || "custom".contentEquals(prefs.displayResolutionMode.get());
+            boolean displayStretchEnabled = "exact".contentEquals(prefs.displayResolutionMode.get()) || "Произвольное".contentEquals(prefs.displayResolutionMode.get());
             findPreference("displayStretch").setEnabled(displayStretchEnabled);
             findPreference("displayStretch").setSummary(displayStretchEnabled ? "" : "Requires \"display resolution mode\" to be \"exact\" or \"custom\"");
             findPreference("adjustResolution").setEnabled(displayStretchEnabled);
@@ -230,7 +230,7 @@ public class LoriePreferences extends AppCompatActivity {
             int modeValue = Integer.parseInt(prefs.touchMode.get()) - 1;
             String mode = getResources().getStringArray(R.array.touchscreenInputModesEntries)[modeValue];
             findPreference("touchMode").setSummary(mode);
-            boolean scaleTouchpadEnabled = "1".equals(prefs.touchMode.get()) && !"native".equals(prefs.displayResolutionMode.get());
+            boolean scaleTouchpadEnabled = "1".equals(prefs.touchMode.get()) && !"По умолчанию".equals(prefs.displayResolutionMode.get());
             findPreference("scaleTouchpad").setEnabled(scaleTouchpadEnabled);
             findPreference("scaleTouchpad").setSummary(scaleTouchpadEnabled ? "" : "Requires \"Touchscreen input mode\" to be \"Trackpad\" and \"Display resolution mode\" to be not \"native\"");
             findPreference("scaleTouchpad").setSummary(scaleTouchpadEnabled ? "" : "Requires \"Touchscreen input mode\" to be \"Trackpad\" and \"Display resolution mode\" to be not \"native\"");
@@ -313,7 +313,7 @@ public class LoriePreferences extends AppCompatActivity {
                 desc.setMovementMethod(LinkMovementMethod.getInstance());
                 new android.app.AlertDialog.Builder(getActivity())
                         .setView(view)
-                        .setTitle("Extra keys config")
+                        .setTitle("Конфигурация дополнительных клавиш")
                         .setPositiveButton("OK",
                                 (dialog, whichButton) -> {
                                     String text = config.getText().toString();
@@ -346,7 +346,7 @@ public class LoriePreferences extends AppCompatActivity {
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             String key = preference.getKey();
-            Log.e("Preferences", "changed preference: " + key);
+            Log.e("Предпочтения", "Изменить предпочтения: " + key);
             handler.removeCallbacks(updateLayout);
             handler.postDelayed(updateLayout, 50);
 
@@ -366,7 +366,7 @@ public class LoriePreferences extends AppCompatActivity {
                     Integer.parseInt(resolution[0]);
                     Integer.parseInt(resolution[1]);
                 } catch (NumberFormatException | PatternSyntaxException ignored) {
-                    Toast.makeText(getActivity(), "Wrong resolution format", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Неправильный формат разрешения", Toast.LENGTH_SHORT).show();
                     return false;
                 }
             }
@@ -379,9 +379,9 @@ public class LoriePreferences extends AppCompatActivity {
                     KeyInterceptor.shutdown();
                 if (requireContext().checkSelfPermission(WRITE_SECURE_SETTINGS) != PERMISSION_GRANTED) {
                     new AlertDialog.Builder(requireContext())
-                            .setTitle("Permission denied")
-                            .setMessage("Android requires WRITE_SECURE_SETTINGS permission to start accessibility service automatically.\n" +
-                                    "Please, launch this command using ADB:\n" +
+                            .setTitle("Доступ запрещен")
+                            .setMessage("Android требует WRITE_SECURE_SETTINGS разрешение на автоматический запуск службы доступности.\n" +
+                                    "Пожалуйста, запустите эту команду, используя ADB:\n" +
                                     "adb shell pm grant com.termux.x11 android.permission.WRITE_SECURE_SETTINGS")
                             .setNegativeButton("OK", null)
                             .create()
@@ -469,9 +469,9 @@ public class LoriePreferences extends AppCompatActivity {
                                     KeyInterceptor.shutdown();
                                 else if (context.checkSelfPermission(WRITE_SECURE_SETTINGS) != PERMISSION_GRANTED) {
                                     setResultCode(1);
-                                    setResultData("Permission denied.\n" +
-                                            "Android requires WRITE_SECURE_SETTINGS permission to change `enableAccessibilityServiceAutomatically` setting.\n" +
-                                            "Please, launch this command using ADB:\n" +
+                                    setResultData("Доступ запрещен.\n" +
+                                            "Android требует WRITE_SECURE_SETTINGS разрешение на изменение `enableAccessibilityServiceAutomatically` setting.\n" +
+                                            "Пожалуйста, запустите эту команду, используя ADB:\n" +
                                             "adb shell pm grant com.termux.x11 android.permission.WRITE_SECURE_SETTINGS");
                                     return;
                                 }
@@ -494,7 +494,7 @@ public class LoriePreferences extends AppCompatActivity {
                                         edit.putInt(key, Integer.parseInt(newValue));
                                     } catch (NumberFormatException | PatternSyntaxException exception) {
                                         setResultCode(4);
-                                        setResultData(key + ": failed to parse integer: " + exception);
+                                        setResultData(key + ": не удалось прочитать значение: " + exception);
                                         return;
                                     }
                                 } else if (pref != null && pref.type == String[].class) {
@@ -512,11 +512,11 @@ public class LoriePreferences extends AppCompatActivity {
                                     }
 
                                     setResultCode(1);
-                                    setResultData(key + ": can not be set to \"" + newValue + "\", possible options are " + Arrays.toString(entries) + (_p.entries != _p.values ? " or " + Arrays.toString(values) : ""));
+                                    setResultData(key + ": не может быть установлен на \"" + newValue + "\", возможные варианты " + Arrays.toString(entries) + (_p.entries != _p.values ? " or " + Arrays.toString(values) : ""));
                                     return;
                                 } else {
                                     setResultCode(4);
-                                    setResultData(key + ": unrecognised option");
+                                    setResultData(key + ": неизвестный вариант");
                                     return;
                                 }
                             }

@@ -169,20 +169,20 @@ public class TouchInputHandler {
             /** @noinspection DataFlowIssue*/
             @Override
             public void onInputDeviceAdded(int deviceId) {
-                android.util.Log.d("InputDeviceListener", "added " + InputDevice.getDevice(deviceId).getName());
+                android.util.Log.d("Устройства ввода", "добавлено " + InputDevice.getDevice(deviceId).getName());
                 refreshInputDevices();
             }
 
             @Override
             public void onInputDeviceRemoved(int deviceId) {
-                android.util.Log.d("InputDeviceListener", "device removed");
+                android.util.Log.d("Устройства ввода", "устройство удалено");
                 refreshInputDevices();
             }
 
             /** @noinspection DataFlowIssue*/
             @Override
             public void onInputDeviceChanged(int deviceId) {
-                android.util.Log.d("InputDeviceListener", "changed " + InputDevice.getDevice(deviceId).getName());
+                android.util.Log.d("Устройства ввода", "изменено " + InputDevice.getDevice(deviceId).getName());
                 refreshInputDevices();
             }
         }, null);
@@ -196,15 +196,15 @@ public class TouchInputHandler {
     static public void refreshInputDevices() {
         AtomicBoolean stylusAvailable = new AtomicBoolean(false);
         AtomicBoolean externalKeyboardAvailable = new AtomicBoolean(false);
-        android.util.Log.d("DEVICES", "external keyboard connected " + stylusAvailable.get());
+        android.util.Log.d("DEVICES", "подключена внешняя клавиатура " + stylusAvailable.get());
         Arrays.stream(InputDevice.getDeviceIds())
                 .mapToObj(InputDevice::getDevice)
                 .filter(Objects::nonNull)
                 .forEach((device) -> {
                     //noinspection DataFlowIssue
-                    android.util.Log.d("DEVICES", "found device \"" + device.getName() + "\" " +
-                            (device.supportsSource(InputDevice.SOURCE_STYLUS) ? ((isExternal(device) ? "external " : "") + "stylus ") : "") +
-                            ((device.supportsSource(InputDevice.SOURCE_KEYBOARD) && device.getKeyboardType() == InputDevice.KEYBOARD_TYPE_ALPHABETIC) ? ((isExternal(device) ? "external " : "") + "keyboard ") : "") +
+                    android.util.Log.d("DEVICES", "Найдено устройство \"" + device.getName() + "\" " +
+                            (device.supportsSource(InputDevice.SOURCE_STYLUS) ? ((isExternal(device) ? "внешний " : "") + "стилус ") : "") +
+                            ((device.supportsSource(InputDevice.SOURCE_KEYBOARD) && device.getKeyboardType() == InputDevice.KEYBOARD_TYPE_ALPHABETIC) ? ((isExternal(device) ? "внешняя " : "") + "клавиатура ") : "") +
                             "sources " + String.format("0x%08X", device.getSources()));
 
                     if (device.supportsSource(InputDevice.SOURCE_STYLUS))
@@ -213,8 +213,8 @@ public class TouchInputHandler {
                     if (device.supportsSource(InputDevice.SOURCE_KEYBOARD) && device.getKeyboardType() == InputDevice.KEYBOARD_TYPE_ALPHABETIC && isExternal(device))
                         externalKeyboardAvailable.set(true);
                 });
-        android.util.Log.d("DEVICES", "requesting stylus " + stylusAvailable.get());
-        android.util.Log.d("DEVICES", "external keyboard connected " + externalKeyboardAvailable.get());
+        android.util.Log.d("DEVICES", "запрос стилуса " + stylusAvailable.get());
+        android.util.Log.d("DEVICES", "подключена внешняя клавиатура " + externalKeyboardAvailable.get());
         LorieView.requestStylusEnabled(stylusAvailable.get());
         MainActivity.getInstance().setExternalKeyboardConnected(externalKeyboardAvailable.get());
     }
@@ -424,12 +424,12 @@ public class TouchInputHandler {
             return noAction;
 
         switch(pref.asList().get()) {
-            case "toggle soft keyboard": return (down) -> { if (down) MainActivity.toggleKeyboardVisibility(mActivity); };
-            case "toggle additional key bar": return (down) -> { if (down) mActivity.toggleExtraKeys(); };
-            case "open preferences": return (down) -> { if (down) mActivity.startActivity(new Intent(mActivity, LoriePreferences.class) {{ setAction(Intent.ACTION_MAIN); }}); };
-            case "release pointer and keyboard capture": return (down) -> { if (down) setCapturingEnabled(false); };
-            case "send volume up": return (down) -> MainActivity.getInstance().getLorieView().sendKeyEvent(0, KEYCODE_VOLUME_UP, down);
-            case "send volume down": return (down) -> MainActivity.getInstance().getLorieView().sendKeyEvent(0, KEYCODE_VOLUME_DOWN, down);
+            case "Переключить клавиатуру": return (down) -> { if (down) MainActivity.toggleKeyboardVisibility(mActivity); };
+            case "Переключить дополнительную панель клавиш": return (down) -> { if (down) mActivity.toggleExtraKeys(); };
+            case "Открыть настройки": return (down) -> { if (down) mActivity.startActivity(new Intent(mActivity, LoriePreferences.class) {{ setAction(Intent.ACTION_MAIN); }}); };
+            case "Отпустить указатель и захватить клавиатуру": return (down) -> { if (down) setCapturingEnabled(false); };
+            case "Увеличение громкости": return (down) -> MainActivity.getInstance().getLorieView().sendKeyEvent(0, KEYCODE_VOLUME_UP, down);
+            case "Уменьшение громкости": return (down) -> MainActivity.getInstance().getLorieView().sendKeyEvent(0, KEYCODE_VOLUME_DOWN, down);
             default: return noAction;
         }
     }
@@ -809,7 +809,7 @@ public class TouchInputHandler {
                 tiltY = (int) Math.round((float) Math.asin( Math.cos(orientation) * Math.sin(tilt)) * 63.5 - 0.5);
             }
 
-            android.util.Log.d("STYLUS_EVENT", "action " + action + " x " + newX + " y " + newY + " pressure " + e.getPressure() + " tilt " + e.getAxisValue(MotionEvent.AXIS_TILT) + " orientation " + e.getAxisValue(MotionEvent.AXIS_ORIENTATION) + " buttonState " + e.getButtonState() + " extractedButtons " + newButtons);
+            android.util.Log.d("STYLUS_EVENT", "action " + action + " x " + newX + " y " + newY + " давление " + e.getPressure() + " наклон " + e.getAxisValue(MotionEvent.AXIS_TILT) + " Ориентация " + e.getAxisValue(MotionEvent.AXIS_ORIENTATION) + " buttonState " + e.getButtonState() + " extractedButtons " + newButtons);
             mInjector.sendStylusEvent(
                     x = newX,
                     y = newY,

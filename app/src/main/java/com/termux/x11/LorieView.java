@@ -56,7 +56,7 @@ public class LorieView extends SurfaceView implements InputStub {
             width = getMeasuredWidth();
             height = getMeasuredHeight();
 
-            Log.d("SurfaceChangedListener", "Surface was changed: " + width + "x" + height);
+            Log.d("SurfaceChangedListener", "Размер был изменен: " + width + "x" + height);
             if (mCallback == null)
                 return;
 
@@ -132,19 +132,19 @@ public class LorieView extends SurfaceView implements InputStub {
         int w = width;
         int h = height;
         switch(prefs.displayResolutionMode.get()) {
-            case "scaled": {
+            case "Масштабировать": {
                 int scale = prefs.displayScale.get();
                 w = width * 100 / scale;
                 h = height * 100 / scale;
                 break;
             }
-            case "exact": {
+            case "Точное значение": {
                 String[] resolution = prefs.displayResolutionExact.get().split("x");
                 w = Integer.parseInt(resolution[0]);
                 h = Integer.parseInt(resolution[1]);
                 break;
             }
-            case "custom": {
+            case "Произвольное": {
                 try {
                     String[] resolution = prefs.displayResolutionCustom.get().split("x");
                     w = Integer.parseInt(resolution[0]);
@@ -169,8 +169,8 @@ public class LorieView extends SurfaceView implements InputStub {
 
         Prefs prefs = MainActivity.getPrefs();
         if (prefs.displayStretch.get()
-              || "native".equals(prefs.displayResolutionMode.get())
-              || "scaled".equals(prefs.displayResolutionMode.get())) {
+              || "По умолчанию".equals(prefs.displayResolutionMode.get())
+              || "Масштабировать".equals(prefs.displayResolutionMode.get())) {
             getHolder().setSizeFromLayout();
             return;
         }
@@ -242,7 +242,7 @@ public class LorieView extends SurfaceView implements InputStub {
         if (clip != null) {
             String text = String.valueOf(clipboard.getText());
             sendClipboardEvent(text.getBytes(StandardCharsets.UTF_8));
-            Log.d("CLIP", "sending clipboard contents: " + text);
+            Log.d("CLIP", "Отправка содержимого буфера обмена: " + text);
         }
     }
 
@@ -258,7 +258,7 @@ public class LorieView extends SurfaceView implements InputStub {
                 desc.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
             lastClipboardTimestamp = desc.getTimestamp();
             sendClipboardAnnounce();
-            Log.d("CLIP", "sending clipboard announce");
+            Log.d("CLIP", "Отправка содержимого из буфера обмена:");
         }
     }
 

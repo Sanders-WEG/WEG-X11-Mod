@@ -112,18 +112,18 @@ public class MainActivity extends AppCompatActivity implements View.OnApplyWindo
                         service = null;
                         CmdEntryPoint.requestConnection();
 
-                        Log.v("Lorie", "Disconnected");
+                        Log.v("Lorie", "Отключено");
                         runOnUiThread(() -> clientConnectedStateChanged(false));
                     }, 0);
 
                     onReceiveConnection();
                 } catch (Exception e) {
-                    Log.e("MainActivity", "Something went wrong while we extracted connection details from binder.", e);
+                    Log.e("MainActivity", "Что-то пошло не так, когда мы извлекли данные о соединении из подшивки..", e);
                 }
             } else if (ACTION_STOP.equals(intent.getAction())) {
                 finishAffinity();
             } else if (ACTION_PREFERENCES_CHANGED.equals(intent.getAction())) {
-                Log.d("MainActivity", "preference: " + intent.getStringExtra("key"));
+                Log.d("MainActivity", "Настройки: " + intent.getStringExtra("key"));
                 if (!"additionalKbdVisible".equals(intent.getStringExtra("key")))
                     onPreferencesChanged("");
             }
@@ -443,7 +443,7 @@ public class MainActivity extends AppCompatActivity implements View.OnApplyWindo
                 tryConnect();
             }
         } catch (Exception e) {
-            Log.e("MainActivity", "Something went wrong while we were establishing connection", e);
+            Log.e("MainActivity", "Что-то пошло не так, пока мы устанавливали соединение", e);
         }
     }
 
@@ -453,7 +453,7 @@ public class MainActivity extends AppCompatActivity implements View.OnApplyWindo
         try {
             ParcelFileDescriptor fd = service == null ? null : service.getXConnection();
             if (fd != null) {
-                Log.v("MainActivity", "Extracting X connection socket.");
+                Log.v("MainActivity", "Извлечение X разъем подключения.");
                 LorieView.connect(fd.detachFd());
                 getLorieView().triggerCallback();
                 clientConnectedStateChanged(true);
@@ -461,7 +461,7 @@ public class MainActivity extends AppCompatActivity implements View.OnApplyWindo
             } else
                 handler.postDelayed(this::tryConnect, 500);
         } catch (Exception e) {
-            Log.e("MainActivity", "Something went wrong while we were establishing connection", e);
+            Log.e("MainActivity", "Что-то пошло не так, пока мы устанавливали соединение", e);
             service = null;
 
             // We should reset the View for the case if we have sent it's surface to the client.
@@ -630,9 +630,9 @@ public class MainActivity extends AppCompatActivity implements View.OnApplyWindo
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         return new NotificationCompat.Builder(this, getNotificationChannel(notificationManager))
-                .setContentTitle("Termux:X11")
+                .setContentTitle("WEG™:X11⚡️Mod")
                 .setSmallIcon(R.drawable.ic_x11_icon)
-                .setContentText("Pull down to show options")
+                .setContentText("Потяните вниз, чтобы показать варианты")
                 .setContentIntent(pIntent)
                 .setOngoing(true)
                 .setPriority(Notification.PRIORITY_MAX)
@@ -640,7 +640,7 @@ public class MainActivity extends AppCompatActivity implements View.OnApplyWindo
                 .setShowWhen(false)
                 .setColor(0xFF607D8B)
                 .addAction(0, "Exit", pExitIntent)
-                .addAction(0, "Preferences", pIntent)
+                .addAction(0, "Настройки", pIntent)
                 .build();
     }
 
