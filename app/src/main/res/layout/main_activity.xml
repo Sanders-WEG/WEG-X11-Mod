@@ -56,33 +56,45 @@
                 android:text="@string/not_connected"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
-
+            
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="40dp" />
-
+                android:minHeight="5dp" />
+            
+            <Button
+                android:id="@+id/help_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/help_button_text" />
+                                    
+           <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="1dp" />
+            
+            <Button
+                android:id="@+id/fps_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fps_button_text" />
+                        
+           <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="1dp" />
+            
             <Button
                 android:id="@+id/preferences_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/preferences_button_text" />
 
-            <Space
+            
+           <Space
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="10dp" />
-
-            <Button
-                android:id="@+id/help_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/help_button_text" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="10dp" />
+                android:minHeight="1dp" />         
 
             <Button
                 android:id="@+id/exit_button"
