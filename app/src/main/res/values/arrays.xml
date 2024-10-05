@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="touchscreenInputModesEntries">
-        <item>Trackpad</item>
-        <item>Simulated touchscreen</item>
-        <item>Direct touch</item>
+        <item>Трекпад</item>
+        <item>Имитация сенсорного экрана</item>
+        <item>Прямое прикосновение</item>
     </string-array>
     <string-array name="touchscreenInputModesValues">
         <item>1</item>
@@ -11,10 +11,10 @@
         <item>3</item>
     </string-array>
     <string-array name="transformCapturedPointerEntries">
-        <item>No</item>
-        <item>Clockwise</item>
-        <item>Counter clockwise</item>
-        <item>Upside down</item>
+        <item>Нет</item>
+        <item>По часовой стрелке</item>
+        <item>Против часовой стрелкие</item>
+        <item>Снизу вверх</item>
     </string-array>
     <string-array name="transformCapturedPointerValues">
         <item>no</item>
@@ -23,10 +23,10 @@
         <item>ud</item>
     </string-array>
     <string-array name="displayResolutionVariants">
-        <item>native</item>
-        <item>scaled</item>
-        <item>exact</item>
-        <item>custom</item>
+        <item>По умолчанию</item>
+        <item>Масштабировать</item>
+        <item>Точное значение</item>
+        <item>Произвольное</item>
     </string-array>
     <string-array name="displayResolution">
         <item>320x200</item>
@@ -55,28 +55,28 @@
         <item>1680x1050</item>
         <item>1920x1080</item>
         <item>1920x1200</item>
-    </string-array>
+     </string-array>
     <string-array name="userActionsValues">
-        <item>no action</item>
-        <item>toggle soft keyboard</item>
-        <item>toggle additional key bar</item>
-        <item>open preferences</item>
-        <item>release pointer and keyboard capture</item>
+        <item>Никаких действий</item>
+        <item>Переключить клавиатуру</item>
+        <item>Переключить дополнительную панель клавиш</item>
+        <item>Открыть настройки</item>
+        <item>Отпустить указатель и захватить клавиатуру</item>
     </string-array>
     <string-array name="userActionsVolumeDownValues">
-        <item>no action</item>
-        <item>send volume down</item>
-        <item>toggle soft keyboard</item>
-        <item>toggle additional key bar</item>
-        <item>open preferences</item>
-        <item>release pointer and keyboard capture</item>
+        <item>Никаких действий</item>
+        <item>Уменьшение громкости</item>
+        <item>Переключить клавиатуру</item>
+        <item>Переключить дополнительную панель клавиш</item>
+        <item>Открыть настройки</item>
+        <item>Отпустить указатель и захватить клавиатуру</item>
     </string-array>
     <string-array name="userActionsVolumeUpValues">
-        <item>no action</item>
-        <item>send volume up</item>
-        <item>toggle soft keyboard</item>
-        <item>toggle additional key bar</item>
-        <item>open preferences</item>
-        <item>release pointer and keyboard capture</item>
+        <item>Никаких действий</item>
+        <item>Увеличение громкости</item>
+        <item>Переключить клавиатуру</item>
+        <item>Переключить дополнительную панель клавиш</item>
+        <item>Открыть настройки</item>
+        <item>Отпустить указатель и захватить клавиатуру</item>
     </string-array>
 </resources>

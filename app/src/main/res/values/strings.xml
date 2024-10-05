@@ -31,22 +31,22 @@
     </string>
     <string name="action_grant_display_over_other_apps_permission">Grant Draw Over Apps Permission</string>
 
-    <string name="action_already_granted">Already Granted</string>
-    <string name="action_already_disabled">Already Disabled</string>
-    <string name="not_connected">Not connected</string>
-    <string name="preferences_button_text">PREFERENCES</string>
+    <string name="action_already_granted">Подключено</string>
+    <string name="action_already_disabled">Отключено</string>
+    <string name="not_connected">Нет соединения</string>
+    <string name="preferences_button_text">Настройка</string>
     <string name="fps_button_text">YouTube WEG™</string>
-    <string name="help_button_text">WEG™ group on Telegram</string>
-    <string name="exit_button_text">EXIT</string>
-    <string name="extra_keys_config_desc">Here you can set value of extra-keys variable like in Termux app (read <a href="http://wiki.termux.com/wiki/Touch_Keyboard#Extra_Keys_Row">this</a>) and more (e.g. META).
-    Put empty string for the default value.</string>
+    <string name="help_button_text">Группа WEG™ в Telegram</string>
+    <string name="exit_button_text">Выход</string>
+    <string name="extra_keys_config_desc">Здесь вы можете установить значение переменной дополнительных клавиш, как в приложении Termux app (<a href="http://wiki.termux.com/wiki/Touch_Keyboard#Extra_Keys_Row">this</a>) и многое другое (e.g. META).
+    Введите пустую строку в качестве значения по умолчанию.</string>
 
     <!-- Log Level -->
-    <string name="log_level_title">Log Level</string>
-    <string name="log_level_off">Off</string>
-    <string name="log_level_normal">Normal</string>
-    <string name="log_level_debug">Debug</string>
-    <string name="log_level_verbose">Verbose</string>
-    <string name="log_level_unknown">*Unknown*</string>
-    <string name="log_level_value">Logcat log level set to \"%1$s\"</string>
+    <string name="log_level_title">Уровень журнала</string>
+    <string name="log_level_off">Выключенный</string>
+    <string name="log_level_normal">Нормально</string>
+    <string name="log_level_debug">Отладка</string>
+    <string name="log_level_verbose">Подробно</string>
+    <string name="log_level_unknown">*Неизвестный*</string>
+    <string name="log_level_value">Уровень журнала Logcat установлен на \"%1$s\"</string>
 </resources>
