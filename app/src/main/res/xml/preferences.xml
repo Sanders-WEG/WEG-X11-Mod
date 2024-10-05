@@ -215,6 +215,12 @@
             android:key="storeSecondaryDisplayPreferencesSeparately" />
     </PreferenceCategory>
 
+    <PreferenceCategory android:key="Mod" android:title="Mod groups WEG™⚡️Wine Emulators Games">
+      <Preference
+        android:title="Adaptation: 🇺🇦ꜱᴀɴᴅᴇʀꜱ🇺🇦"
+        android:key="weg_keys" />
+      </PreferenceCategory>
+
     <PreferenceCategory android:key="ekbar" android:title="Extra key bar preferences" app:isPreferenceVisible="false">
         <SwitchPreferenceCompat
             android:title="Adjust display height for extra keys bar"
