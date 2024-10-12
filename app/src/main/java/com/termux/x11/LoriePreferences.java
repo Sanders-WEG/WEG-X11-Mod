@@ -206,7 +206,7 @@ public class LoriePreferences extends AppCompatActivity {
             String displayResMode = prefs.displayResolutionMode.get();
             findPreference("displayScale").setVisible(displayResMode.contentEquals("Масштабировать"));
             findPreference("displayResolutionExact").setVisible(displayResMode.contentEquals("Точное значение"));
-            findPreference("displayResolutionCustom").setVisible(displayResMode.contentEquals("Произвольное"));
+            findPreference("displayResolutionCustom").setVisible(displayResMode.contentEquals("custom"));
 
             findPreference("dexMetaKeyCapture").setEnabled(!prefs.enableAccessibilityServiceAutomatically.get());
             findPreference("enableAccessibilityServiceAutomatically").setEnabled(!prefs.dexMetaKeyCapture.get());
