@@ -221,7 +221,7 @@ public class LoriePreferences extends AppCompatActivity {
             findPreference("displayResolutionMode").setSummary(prefs.displayResolutionMode.get());
             findPreference("displayResolutionExact").setSummary(prefs.displayResolutionExact.get());
             findPreference("displayResolutionCustom").setSummary(prefs.displayResolutionCustom.get());
-            boolean displayStretchEnabled = "exact".contentEquals(prefs.displayResolutionMode.get()) || "Произвольное".contentEquals(prefs.displayResolutionMode.get());
+            boolean displayStretchEnabled = "exact".contentEquals(prefs.displayResolutionMode.get()) || "custom".contentEquals(prefs.displayResolutionMode.get());
             findPreference("displayStretch").setEnabled(displayStretchEnabled);
             findPreference("displayStretch").setSummary(displayStretchEnabled ? "" : "Requires \"display resolution mode\" to be \"exact\" or \"custom\"");
             findPreference("adjustResolution").setEnabled(displayStretchEnabled);
