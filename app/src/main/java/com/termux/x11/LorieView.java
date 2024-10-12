@@ -144,7 +144,7 @@ public class LorieView extends SurfaceView implements InputStub {
                 h = Integer.parseInt(resolution[1]);
                 break;
             }
-            case "Произвольное": {
+            case "custom": {
                 try {
                     String[] resolution = prefs.displayResolutionCustom.get().split("x");
                     w = Integer.parseInt(resolution[0]);
