@@ -223,17 +223,17 @@ public class LoriePreferences extends AppCompatActivity {
             findPreference("displayResolutionCustom").setSummary(prefs.displayResolutionCustom.get());
             boolean displayStretchEnabled = "exact".contentEquals(prefs.displayResolutionMode.get()) || "custom".contentEquals(prefs.displayResolutionMode.get());
             findPreference("displayStretch").setEnabled(displayStretchEnabled);
-            findPreference("displayStretch").setSummary(displayStretchEnabled ? "" : "Требуется, чтобы «режим разрешения экрана» был «точным» или «настраиваемым»"");
+            findPreference("displayStretch").setSummary(displayStretchEnabled ? "" : "Требуется \"чтобы режим разрешения дисплея\" бытл \"точный\" или \"custom\"");
             findPreference("adjustResolution").setEnabled(displayStretchEnabled);
-            findPreference("adjustResolution").setSummary(displayStretchEnabled ? "" : "Требуется, чтобы «режим разрешения экрана» был «точным» или «настраиваемым»"");
+            findPreference("adjustResolution").setSummary(displayStretchEnabled ? "" : "Требуется \"чтобы режим разрешения дисплея\" бытл \"точный\" или \"custom\"");
 
             int modeValue = Integer.parseInt(prefs.touchMode.get()) - 1;
             String mode = getResources().getStringArray(R.array.touchscreenInputModesEntries)[modeValue];
             findPreference("touchMode").setSummary(mode);
             boolean scaleTouchpadEnabled = "1".equals(prefs.touchMode.get()) && !"По умолчанию".equals(prefs.displayResolutionMode.get());
             findPreference("scaleTouchpad").setEnabled(scaleTouchpadEnabled);
-            findPreference("scaleTouchpad").setSummary(scaleTouchpadEnabled ? "" : "Requires \"Режим ввода с сенсорного экрана» должен быть «Трекпад», а «Режим разрешения экрана» должен быть не «родным»."");
-            findPreference("scaleTouchpad").setSummary(scaleTouchpadEnabled ? "" : "Requires \"Режим ввода с сенсорного экрана» должен быть «Трекпад», а «Режим разрешения экрана» должен быть не «родным»."");
+            findPreference("scaleTouchpad").setSummary(scaleTouchpadEnabled ? "" : "Требуется \"Режим ввода сенсорного экрана\" должен быть \"Трекпад\" и \"Режим разрешения дисплея\" не должен быть \"по умолчанию\"");
+            findPreference("scaleTouchpad").setSummary(scaleTouchpadEnabled ? "" : "Требуется \"Режим ввода сенсорного экрана\" должен быть \"Трекпад\" и \"Режим разрешения дисплея\" не должен быть \"по умолчанию\"");
             findPreference("showMouseHelper").setEnabled("1".equals(prefs.touchMode.get()));
 
             AtomicBoolean stylusAvailable = new AtomicBoolean(false);
