@@ -223,9 +223,9 @@ public class LoriePreferences extends AppCompatActivity {
             findPreference("displayResolutionCustom").setSummary(prefs.displayResolutionCustom.get());
             boolean displayStretchEnabled = "exact".contentEquals(prefs.displayResolutionMode.get()) || "custom".contentEquals(prefs.displayResolutionMode.get());
             findPreference("displayStretch").setEnabled(displayStretchEnabled);
-            findPreference("displayStretch").setSummary(displayStretchEnabled ? "" : "Требуется \"чтобы режим разрешения дисплея\" бытл \"точный\" или \"custom\"");
+            findPreference("displayStretch").setSummary(displayStretchEnabled ? "" : "Требуется \"чтобы режим разрешения дисплея\" было \"точный\" или \"custom\"");
             findPreference("adjustResolution").setEnabled(displayStretchEnabled);
-            findPreference("adjustResolution").setSummary(displayStretchEnabled ? "" : "Требуется \"чтобы режим разрешения дисплея\" бытл \"точный\" или \"custom\"");
+            findPreference("adjustResolution").setSummary(displayStretchEnabled ? "" : "Требуется \"чтобы режим разрешения дисплея\" было \"точный\" или \"custom\"");
 
             int modeValue = Integer.parseInt(prefs.touchMode.get()) - 1;
             String mode = getResources().getStringArray(R.array.touchscreenInputModesEntries)[modeValue];
