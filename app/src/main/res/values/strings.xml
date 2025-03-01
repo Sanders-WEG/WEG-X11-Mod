@@ -8,6 +8,7 @@
     <string name="plugin_info">&TERMUX_X11_APP_NAME; is a plugin app for the &TERMUX_APP_NAME; app.
         \n\nCheck &TERMUX_APP_NAME; app github %1$s and &TERMUX_X11_APP_NAME; app github %2$s for more info.</string>
 
+
     <!-- TermuxX11Activity -->
     <string name="msg_storage_permission_not_granted_warning">The storage permission must be granted
         to &TERMUX_X11_APP_NAME; app to...</string>
