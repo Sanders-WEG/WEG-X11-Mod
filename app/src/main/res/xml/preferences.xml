@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:key="Настройки экрана" android:title="Настройки экрана" android:singleLineTitle="false" android:iconSpaceReserved="false" >
+        <ListPreference
+            android:title="Настройка разрешения экрана"
+            android:key="displayResolutionMode"
+            android:defaultValue="По умолчанию"
+            android:entries="@array/displayResolutionVariants"
+            android:entryValues="@array/displayResolutionVariants" />
+
+        <SeekBarPreference
+            android:title="Масштабировать, %"
+            android:key="displayScale"
+            android:max="300"
+            android:defaultValue="100" />
+
+        <ListPreference
+            android:title="Разрешение экрана"
+            android:key="displayResolutionExact"
+            android:defaultValue="1280x1024"
+            android:entries="@array/displayResolution"
+            android:entryValues="@array/displayResolution" />
+
+        <EditTextPreference
+            android:title="Разрешение экрана"
+            android:key="displayResolutionCustom"
+            android:defaultValue="1280x1024"
+            android:summary="Example: 1280x1024" />
+
+        <SwitchPreferenceCompat
+            android:title="Разрешение в соответствии с ориентацией экрана"
+            android:defaultValue="false"
+            android:key="adjustResolution" />
+
+        <SwitchPreferenceCompat
+            android:title="Растянуть по размеру дисплея"
+            android:defaultValue="false"
+            android:key="displayStretch" />
+
+        <SwitchPreferenceCompat
+            android:title="Заполнение экрана при открытой программной клавиатуре"
+            android:summary="Размер экрана будет изменен, пока открыта программная клавиатура."
+            android:defaultValue="true"
+            android:key="Reseed" />
+
+        <SwitchPreferenceCompat
+            android:title="PIP Режим"
+            android:summary="Показывать приложение в режиме «картинка в картинке» при нажатии кнопки «Домой» или кнопки «Недавние»"
+            android:defaultValue="false"
+            android:key="PIP" />
+
+        <SwitchPreferenceCompat
+            android:title="Полноэкранный режим"
+            android:summary="Включить/выключить полноэкранный режим"
+            android:defaultValue="false"
+            android:key="fullscreen" />
+
+        <SwitchPreferenceCompat
+            android:title="Принудительная альбомная ориентация"
+            android:defaultValue="false"
+            android:key="forceLandscape" />
+
+        <SwitchPreferenceCompat
+            android:title="Скрыть вырез на дисплее (если есть)"
+            android:defaultValue="false"
+            android:key="hideCutout" />
+        
+        <SwitchPreferenceCompat
+	        android:title="Экран постоянно включен"
+            android:defaultValue="true"
+            android:key="keepScreenOn" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="Курсор" android:title="Курсор">
+        <ListPreference
+            android:title="Режим сенсорного ввода"
+            android:key="touchMode"
+            android:defaultValue="1"
+            android:entries="@array/touchscreenInputModesEntries"
+            android:entryValues="@array/touchscreenInputModesValues" />
+
+        <SwitchPreferenceCompat
+            android:title="Применить масштабный коэффициент дисплея к сенсорной панели"
+            android:defaultValue="true"
+            android:key="scaleTouchpad" />
+
+        <SwitchPreferenceCompat
+            android:title="Показать параметры нажатия стилуса"
+            android:summary="Переопределение касания стилуса, щелчок левой кнопкой мыши по центру или правой кнопкой мыши (только для стилуса)"
+            android:defaultValue="false"
+            android:key="showStylusClickOverride" />
+
+        <SwitchPreferenceCompat
+            android:title="Включить режим стилуса мыши"
+            android:summary="Стилус работает как мышь. При активации стилус будет только перемещать курсор и отправлять щелчки мыши, игнорируя давление, угол и наклон."
+            android:defaultValue="false"
+            android:key="stylusIsMouse" />
+
+        <SwitchPreferenceCompat
+            android:title="Режим модификатора контакта кнопки стилуса"
+            android:summary="Включите эту опцию, чтобы использовать правую или среднюю кнопку мыши только тогда, когда стилус касается экрана, пока кнопка нажата."
+            android:defaultValue="false"
+            android:key="stylusButtonContactModifierMode" />
+
+        <SwitchPreferenceCompat
+            android:title="Показать наложение помощника по щелчку мыши"
+            android:summary="Кнопки экранной мыши, используемые с сенсорной панелью"
+            android:defaultValue="false"
+            android:key="showMouseHelper" />
+
+        <SwitchPreferenceCompat
+            android:title="Захват внешних указателей, когда это возможно."
+            android:summary="Перехватывать все события аппаратного указателя. Указатель возвращается на Android после нажатия клавиши Escape."
+            android:defaultValue="false"
+            android:key="pointerCapture" />
+
+        <ListPreference
+            android:title="Преобразование захваченных движений указателя"
+            android:key="transformCapturedPointer"
+            android:defaultValue="Нет"
+            android:entries="@array/transformCapturedPointerEntries"
+            android:entryValues="@array/transformCapturedPointerValues" />
+
+        <SeekBarPreference
+            android:title="Захваченный коэффициент скорости указателя, %"
+            android:key="capturedPointerSpeedFactor"
+            android:max="200"
+            android:defaultValue="100" />
+
+        <SwitchPreferenceCompat
+            android:title="Включить перемещение касанием для сенсорных панелей"
+            android:defaultValue="false"
+            android:key="tapToMove" />
+    </PreferenceCategory>
+    <PreferenceCategory android:key="kbd" android:title="Клавиатура">
+        <SwitchPreferenceCompat
+            android:title="Показать дополнительную клавиатуру"
+            android:summary="Показать клавиатуру с дополнительными клавишами."
+            android:defaultValue="true"
+            android:key="showAdditionalKbd" />
+
+        <!-- this preference should be a part of `Prefs` but should not appear in PreferenceScreen -->
+        <SwitchPreferenceCompat
+            app:isPreferenceVisible="false"
+            android:defaultValue="true"
+            android:key="additionalKbdVisible" />
+
+        <SwitchPreferenceCompat
+            android:title="Показать IME с внешней клавиатурой"
+            android:summary="SПоказывать программную клавиатуру при подключенной аппаратной клавиатуре."
+            android:defaultValue="true"
+            android:key="showIMEWhileExternalConnected" />
+
+        <SwitchPreferenceCompat
+            android:title="По возможности отдавайть предпочтение сканкодам"
+            android:summary="Позвольте X-серверу управлять раскладкой аппаратной клавиатуры (с настройками DE или setxkbmap)."
+            android:defaultValue="false"
+            android:key="preferScancodes"/>
+
+        <SwitchPreferenceCompat
+            android:title="Обходной путь аппаратного сканирования кодов клавиатуры"
+            android:summary="Исправляет сканкоды на некоторых устройствах. Могут возникнуть проблемы с несколькими макетами."
+            android:defaultValue="true"
+            android:key="hardwareKbdScancodesWorkaround"/>
+
+        <SwitchPreferenceCompat
+            android:title="Перехватывать системные ярлыки"
+            android:summary="Только Samsung Dex. Позволяет перехватывать «Alt+F4», «Meta+D», «Meta+E» и т. д. "
+            android:defaultValue="false"
+            android:key="dexMetaKeyCapture" />
+
+        <Preference
+            android:title="Включите службу специальных возможностей для перехвата системных ярлыков вручную."
+            android:summary="Открыть настройки специальных возможностей."
+            android:key="enableAccessibilityService">
+            <intent android:action="android.settings.ACCESSIBILITY_SETTINGS"/>
+        </Preference>
+
+        <SwitchPreferenceCompat
+            android:title="Включите службу специальных возможностей для автоматического перехвата системных ярлыков."
+            android:summary="Требуется разрешение WRITE_SECURE_SETTINGS."
+            android:defaultValue="false"
+            android:key="enableAccessibilityServiceAutomatically" />
+
+        <SwitchPreferenceCompat
+            android:title="Перехват клавиши паузы клавишей Esc"
+            android:defaultValue="false"
+            android:key="pauseKeyInterceptingWithEsc" />
+
+        <SwitchPreferenceCompat
+            android:title="Отфильтровать перехваченный ключ Win  (Meta/Mod4)."
+            android:summary="Позволяет использовать ярлыки Dex во время перехвата. Для работы требуется служба специальных возможностей."
+            android:defaultValue="false"
+            android:key="filterOutWinkey" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:key="Другое" android:title="Другое">
+        <SwitchPreferenceCompat
+            android:title="Совместное использование буфера обмена"
+            android:defaultValue="false"
+            android:key="clipboardEnable" />
+
+        <Preference
+            android:title="Запрос разрешения на уведомление"
+            android:key="requestNotificationPermission" />
+
+        <Preference
+            android:title="Настроить реакцию на действия пользователя"
+            android:key="configureResponseToUserActions" />
+
+        <SwitchPreferenceCompat
+            android:title="Сохранить настройки для дополнительных дисплеев."
+            android:summary="Открыть это окно на дисплее, который вы хотите настроить."
+            android:defaultValue="false"
+            android:key="storeSecondaryDisplayPreferencesSeparately" />
+   </PreferenceCategory>
+
+   <PreferenceCategory android:key="Мод" android:title="Mod группы WEG™⚡️Wine Emulators Games">
+    <Preference
+        android:title="Перевод и адаптация: 🇺🇦ꜱᴀɴᴅᴇʀꜱ🇺🇦"
+        android:key="weg_keys" />
+   </PreferenceCategory>	
+	
+    <PreferenceCategory android:key="ekbar" android:title="Дополнительные настройки панели клавиш" app:isPreferenceVisible="false">
+        <SwitchPreferenceCompat
+            android:title="Отрегулировать высоту дисплея для дополнительной панели клавиш"
+            android:summary="Может вызывать мерцание экрана при переключении панели EK."
+            android:defaultValue="false"
+            android:key="adjustHeightForEK" />
+
+        <SwitchPreferenceCompat
+            android:title="Деактивировать специальные клавиши на дополнительной панели после каждого нажатия."
+            android:summary="Используйте долгое нажатие, чтобы заблокировать специальные клавиши"
+            android:defaultValue="false"
+            android:key="useTermuxEKBarBehaviour" />
+
+        <SeekBarPreference
+            android:title="Прозрачность панели дополнительных клавиш, %"
+            android:key="opacityEKBar"
+            android:max="100"
+            android:defaultValue="100" />
+
+        <Preference
+            android:title="Конфигурация дополнительных клавиш"
+            android:key="extra_keys_config" />
+    </PreferenceCategory>
+
+ <PreferenceCategory android:key="userActions" android:title="Реакция на действия пользователя" app:isPreferenceVisible="false">
+        <ListPreference
+            android:title="Провести тремя пальцами вверх"
+            android:key="swipeUpAction"
+            android:defaultValue="Никаких действий"
+            android:entries="@array/userActionsValues"
+            android:entryValues="@array/userActionsValues" />
+
+        <ListPreference
+            android:title="Провести тремя пальцами вниз"
+            android:key="swipeDownAction"
+            android:defaultValue="Переключить дополнительную панель клавиш"
+            android:entries="@array/userActionsValues"
+            android:entryValues="@array/userActionsValues" />
+
+        <ListPreference
+            android:title="Увеличение громкости"
+            android:key="volumeUpAction"
+            android:defaultValue="Никаких действий"
+            android:entries="@array/userActionsVolumeUpValues"
+            android:entryValues="@array/userActionsVolumeUpValues" />
+
+        <ListPreference
+            android:title="Уменьшение громкости"
+            android:key="volumeDownAction"
+            android:defaultValue="Никаких действий"
+            android:entries="@array/userActionsVolumeDownValues"
+            android:entryValues="@array/userActionsVolumeDownValues" />
+
+        <ListPreference
+            android:title="Кнопка «Назад»"
+            android:key="backButtonAction"
+            android:defaultValue="Переключить клавиатуру"
+            android:entries="@array/userActionsValues"
+            android:entryValues="@array/userActionsValues" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="touchscreenInputModesEntries">
+        <item>Трекпад</item>
+        <item>Имитация сенсорного экрана</item>
+        <item>Прямое прикосновение</item>
+    </string-array>
+    <string-array name="touchscreenInputModesValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="transformCapturedPointerEntries">
+        <item>Нет</item>
+        <item>По часовой стрелке</item>
+        <item>Против часовой стрелкие</item>
+        <item>Снизу вверх</item>
+    </string-array>
+    <string-array name="transformCapturedPointerValues">
+        <item>no</item>
+        <item>c</item>
+        <item>cc</item>
+        <item>ud</item>
+    </string-array>
+    <string-array name="displayResolutionVariants">
+        <item>По умолчанию</item>
+        <item>Масштабировать</item>
+        <item>Точное значение</item>
+        <item>custom</item>
+    </string-array>
+    <string-array name="displayResolution">
+        <item>320x200</item>
+        <item>320x240</item>
+        <item>320×256</item>
+        <item>400x240</item>
+        <item>640x360</item>
+        <item>640x400</item>
+        <item>640x480</item>
+        <item>800x480</item>
+        <item>800x600</item>
+        <item>854x480</item>
+        <item>960x540</item>
+        <item>1024x576</item>
+        <item>1024x768</item>
+        <item>1152×648</item>
+        <item>1152×720</item>
+        <item>1200x648</item>
+        <item>1280x720</item>
+        <item>1280x800</item>
+        <item>1280x960</item>
+        <item>1280x1024</item>
+        <item>1400x1080</item>
+        <item>1600x900</item>
+        <item>1640x1025</item>
+        <item>1680x1050</item>
+        <item>1920x1080</item>
+        <item>1920x1200</item>
+     </string-array>
+    <string-array name="userActionsValues">
+        <item>Никаких действий</item>
+        <item>Переключить клавиатуру</item>
+        <item>Переключить дополнительную панель клавиш</item>
+        <item>Открыть настройки</item>
+        <item>Отпустить указатель и захватить клавиатуру</item>
+    </string-array>
+    <string-array name="userActionsVolumeDownValues">
+        <item>Никаких действий</item>
+        <item>Уменьшение громкости</item>
+        <item>Переключить клавиатуру</item>
+        <item>Переключить дополнительную панель клавиш</item>
+        <item>Открыть настройки</item>
+        <item>Отпустить указатель и захватить клавиатуру</item>
+    </string-array>
+    <string-array name="userActionsVolumeUpValues">
+        <item>Никаких действий</item>
+        <item>Увеличение громкости</item>
+        <item>Переключить клавиатуру</item>
+        <item>Переключить дополнительную панель клавиш</item>
+        <item>Открыть настройки</item>
+        <item>Отпустить указатель и захватить клавиатуру</item>
+    </string-array>
+</resources>

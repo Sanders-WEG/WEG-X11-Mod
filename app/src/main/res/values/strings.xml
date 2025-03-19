@@ -1,0 +1,53 @@
+<!DOCTYPE resources [
+    <!ENTITY TERMUX_PACKAGE_NAME "com.termux">
+    <!ENTITY TERMUX_APP_NAME "Termux">
+    <!ENTITY TERMUX_X11_APP_NAME "WEG™:X11⚡️Mod">
+    ]>
+<resources>
+    <string name="app_name">&TERMUX_X11_APP_NAME;</string>
+    <string name="plugin_info">&TERMUX_X11_APP_NAME; is a plugin app for the &TERMUX_APP_NAME; app.
+        \n\nCheck &TERMUX_APP_NAME; app github %1$s and &TERMUX_X11_APP_NAME; app github %2$s for more info.</string>
+
+
+    <!-- TermuxX11Activity -->
+    <string name="msg_storage_permission_not_granted_warning">The storage permission must be granted
+        to &TERMUX_X11_APP_NAME; app to...</string>
+    <string name="action_grant_storage_permission">Grant Storage Permission</string>
+
+    <string name="msg_battery_optimization_not_disabled_warning">Android battery optimizations
+        should be disabled for the &TERMUX_X11_APP_NAME; app so that…
+        Check https://developer.android.com/about/versions/oreo/background for more info and
+        https://developer.android.com/guide/components/foreground-services#background-start-restrictions
+        for more info.
+
+        \n\nAlso check https://dontkillmyapp.com for info on vendor specific app killers.
+        Depending on vendor you may need to do things like enable AutoStart, disable DuraSpeed,
+        enable `Display pop-up windows while running in the background` for the app.</string>
+    <string name="action_disable_battery_optimizations">Disable Battery Optimizations</string>
+
+    <string name="msg_display_over_other_apps_permission_not_granted_warning">The display over other
+        apps permission should be granted to &TERMUX_X11_APP_NAME; app for starting foreground
+        activities from background. Check https://developer.android.com/guide/components/activities/background-starts
+        for more info.
+    </string>
+    <string name="action_grant_display_over_other_apps_permission">Grant Draw Over Apps Permission</string>
+
+    <string name="action_already_granted">Подключено</string>
+    <string name="action_already_disabled">Отключено</string>
+    <string name="not_connected">Нет соединения</string>
+    <string name="preferences_button_text">Настройка</string>
+    <string name="fps_button_text">YouTube WEG™</string>
+    <string name="help_button_text">Группа WEG™ в Telegram</string>
+    <string name="exit_button_text">Выход</string>
+    <string name="extra_keys_config_desc">Здесь вы можете установить значение переменной дополнительных клавиш, как в приложении Termux app (<a href="http://wiki.termux.com/wiki/Touch_Keyboard#Extra_Keys_Row">this</a>) и многое другое (e.g. META).
+    Введите пустую строку в качестве значения по умолчанию.</string>
+
+    <!-- Log Level -->
+    <string name="log_level_title">Уровень журнала</string>
+    <string name="log_level_off">Выключенный</string>
+    <string name="log_level_normal">Нормально</string>
+    <string name="log_level_debug">Отладка</string>
+    <string name="log_level_verbose">Подробно</string>
+    <string name="log_level_unknown">*Неизвестный*</string>
+    <string name="log_level_value">Уровень журнала Logcat установлен на \"%1$s\"</string>
+</resources>
